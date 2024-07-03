@@ -1,0 +1,30 @@
+.container{
+  display: flex;
+  justify-content: center;
+  height: 30px;
+  
+}
+.header{
+  background-color: rgb(87, 192, 87);
+  height: 50px;
+  padding-top: 10px;
+}
+
+.input{
+  border: 1px solid black;
+  font-size: 15px;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.btn{
+  display: flex;
+  margin-left: 10px;
+  align-items: center;
+  border-radius: 3px;
+  border: 1px solid black;
+  background-color: rgb(255, 255, 255);
+}
+.btn:hover{
+  background-color: rgb(209, 242, 209);
+}
