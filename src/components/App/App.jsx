@@ -1,6 +1,8 @@
 import SearchBar from "../SeachBar/SearchBar";
 import ImageGallery from "../ImageGallery/ImageGallery";
-import { BallTriangle } from 'react-loader-spinner';
+import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import Loader from "../Loader/Loader"
 import { useEffect, useState } from "react";
 import { fetchPhotos } from "../../photos-api";
 import toast, { Toaster } from 'react-hot-toast';
@@ -67,23 +69,10 @@ export default function App() {
   return (
     <div>
       <SearchBar onSearch={handleSearch} />
-      {error && <p className={css.errorTxt}>Something went wrong...</p>}
+      {error && <ErrorMessage />}
+      {loading && <Loader/>}
       {photos.length > 0 && <ImageGallery items={photos} onImgClick={modalOpen} />}
-      {loading && (
-        <div className={css.loader}>
-          <BallTriangle
-            height={50}
-            width={50}
-            radius={5}
-            color="#4fa94d"
-            ariaLabel="ball-triangle-loading"
-            wrapperStyle={{}}
-            wrapperClass=""
-            visible={true}
-          />
-        </div>
-      )}
-      {photos.length > 0 && !loading && !(page >= totalPages) && <button className={css.loadMoreBtn} onClick={handleLoadMore}>Load more</button>}
+      {photos.length > 0 && !loading && !(page >= totalPages) && <LoadMoreBtn onClick={handleLoadMore} />}
       {page === totalPages && <p className={css.lastPageTxt}>Sorry, this is the last page for now! ☹️</p>}
       <ImageModal isOpen={isModalOpen} onRequestClose={modalClosed} img={onImg} />
       <Toaster position="top-right"/>

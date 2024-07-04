@@ -1,24 +1,3 @@
-.loader {
-  display: flex;
-  justify-content: center;
-}
-
-.errorTxt {
-  text-align: center;
-}
-.loadMoreBtn{
-  display: flex;
-  margin: 0 auto;
-  border-radius: 3px;
-  border: 1px solid black;
-  background-color: rgb(255, 255, 255);
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.loadMoreBtn:hover {
-  background-color: rgb(209, 242, 209);
-}
 .lastPageTxt{
   display: flex;
   justify-content: center;
