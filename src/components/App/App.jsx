@@ -46,10 +46,14 @@ export default function App() {
         setLoading(true);
         setError(false);
         const data = await fetchPhotos(topic, page);
-        setTotalPages(data.total_pages)
+        if (data.results.length === 0 && page === 1) {
+          toast.error("Sorry, no photo matching your request:(")
+        } else {
+          setTotalPages(data.total_pages)
         setPhotos(prevPhotos => {
           return [...prevPhotos, ...data.results]
         });
+        }
       } catch (error) {
         toast.error("Please, try to reload this page!")
         setError(true);
