@@ -47,7 +47,7 @@ export default function App() {
         setError(false);
         const data = await fetchPhotos(topic, page);
         if (data.results.length === 0 && page === 1) {
-          toast.error("Sorry, no photo matching your request:(")
+          toast.error("Sorry, no photo matching your request :(")
         } else {
           setTotalPages(data.total_pages)
         setPhotos(prevPhotos => {
