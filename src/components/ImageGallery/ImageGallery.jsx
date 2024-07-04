@@ -11,6 +11,7 @@ export default function ImageGallery({ items, onImgClick }) {
             alt={item.alt_description}
             className={css.card}
             onClick={() => onImgClick(item)}
+            likes={item.likes}
           />
         </li>
       ))}

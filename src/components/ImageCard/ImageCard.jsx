@@ -1,9 +1,10 @@
 import css from "./ImageCard.module.css";
-
-export default function ImageCard({ src, alt, onClick }) {
+import { BiLike } from "react-icons/bi";
+export default function ImageCard({ src, alt, likes, onClick }) {
   return (
-    <div onClick={onClick} >
-      <img src={src} alt={alt} className={css.card}/>
+    <div onClick={onClick} className={css.card} >
+      <img src={src} alt={alt} className={css.img} />
+      <p className={css.likes}><BiLike className={css.likeIcon} />Likes: {likes}</p>
     </div>
   );
 }

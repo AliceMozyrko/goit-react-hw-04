@@ -48,7 +48,7 @@ export default function App() {
         const data = await fetchPhotos(topic, page);
         setTotalPages(data.total_pages)
         setPhotos(prevPhotos => {
-          return [...prevPhotos, ...data]
+          return [...prevPhotos, ...data.results]
         });
       } catch (error) {
         toast.error("Please, try to reload this page!")
@@ -80,7 +80,7 @@ export default function App() {
         </div>
       )}
       {photos.length > 0 && !loading && !(page >= totalPages) && <button className={css.loadMoreBtn} onClick={handleLoadMore}>Load more</button>}
-      {page >= totalPages && <p className={css.lastPageTxt}>Sorry, this is the last page for now! ☹️</p>}
+      {page === totalPages && <p className={css.lastPageTxt}>Sorry, this is the last page for now! ☹️</p>}
       <ImageModal isOpen={isModalOpen} onRequestClose={modalClosed} img={onImg} />
       <Toaster position="top-right"/>
     </div>
